@@ -1,5 +1,3 @@
-#include <avr/wdt.h>
-
 const byte rel1 = A0;
 const byte rel2 = A1;
 const byte sensor = A3;
@@ -18,12 +16,10 @@ void setup() {
   pinMode(13, OUTPUT);
   pinMode(sensor, INPUT_PULLUP);
   Serial.begin(115200);
-  wdt_enable(WDTO_8S);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  wdt_reset();
   baca_proxy();
   switch(state){
     case stanby:
